@@ -492,7 +492,7 @@ func TestParseSuccess(t *testing.T) {
 	another(`with (sum(a,b)=a+b) sum(c,d)`, `c + d`)
 
 	// __ceres_field__
-	same(`table{__ceresdb_field__="cpu_util",app="a"} / mini{__ceresdb_field__="mem_util",app="a"}`)
+	same(`table{__ceresdb_field__="cpu_util", app="a"} / mini{__ceresdb_field__="mem_util", app="a"}`)
 }
 
 func TestParseError(t *testing.T) {

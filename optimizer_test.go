@@ -254,5 +254,5 @@ func TestOptimize(t *testing.T) {
 	f(`100 * on(foo) bar{baz="z"} + a`, `(100 * on (foo) bar{baz="z"}) + a`)
 
 	// __ceresdb_field__
-	f(`table{__ceresdb_field__="cpu_util",app="a"} / mini{__ceresdb_field__="mem_util",app="a"}`, `table{__ceresdb_field__="cpu_util",app="a"} / mini{__ceresdb_field__="mem_util",app="a"}`)
+	f(`table{__ceresdb_field__="cpu_util",app="a"} / mini{__ceresdb_field__="mem_util",app="a"}`, `table{__ceresdb_field__="cpu_util", app="a"} / mini{__ceresdb_field__="mem_util", app="a"}`)
 }
