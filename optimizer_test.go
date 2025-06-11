@@ -388,4 +388,7 @@ func TestOptimize(t *testing.T) {
 	f(`scalar(x) * foo / bar{baz="a"}`, `(scalar(x) * foo{baz="a"}) / bar{baz="a"}`)
 	f(`SCALAR(x) * foo / bar{baz="a"}`, `(SCALAR(x) * foo{baz="a"}) / bar{baz="a"}`)
 	f(`100 * on(foo) bar{baz="z"} + a`, `(100 * on(foo) bar{baz="z"}) + a`)
+
+	// __ceresdb_field__
+	f(`table{__ceresdb_field__="cpu_util",app="a"} / mini{__ceresdb_field__="mem_util",app="a"}`, `table{__ceresdb_field__="cpu_util",app="a"} / mini{__ceresdb_field__="mem_util",app="a"}`)
 }

@@ -641,6 +641,9 @@ func TestParseSuccess(t *testing.T) {
 	another(`increase(m[$__rate_interval] offset -$__rate_interval) + -$__rate_interval`, `increase(m offset -1i) + (0 - 1i)`)
 	another(`rate(m[$__rate_interval:5m])`, `rate(m[:5m])`)
 	another(`rate(m[$__interval:5m])`, `rate(m[:5m])`)
+
+	// __ceres_field__
+	same(`table{__ceresdb_field__="cpu_util",app="a"} / mini{__ceresdb_field__="mem_util",app="a"}`)
 }
 
 func TestParseError(t *testing.T) {

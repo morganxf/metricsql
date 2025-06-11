@@ -334,7 +334,7 @@ func getCommonLabelFiltersWithoutMetricName(lfss [][]LabelFilter) []LabelFilter 
 func getLabelFiltersWithoutMetricName(lfs []LabelFilter) []LabelFilter {
 	lfsNew := make([]LabelFilter, 0, len(lfs))
 	for _, lf := range lfs {
-		if lf.Label != "__name__" {
+		if lf.Label != "__name__" && lf.Label != "__ceresdb_field__" {
 			lfsNew = append(lfsNew, lf)
 		}
 	}
